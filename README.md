@@ -10,5 +10,6 @@ The pipeline needs to be set by running something similar to:
 
 The pipleline has who variables:
 
-`github-private-key`: Private key for github access. (Since the git resource is generic we can't use API key access)
-`git-branch`: Name of branch to build.
+ - `github-private-key`: Private key for github access. (Since the git resource is generic we can't use API key access)
+ - `git-repo`: Name of github repository including oranization
+ - `git-branch`: Name of branch to build.
