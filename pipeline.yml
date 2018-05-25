@@ -15,9 +15,17 @@ resources:
 jobs:
   - name: build
     plan:
-    - get: tasks-source
-      trigger: false    
     - get: source-code
       trigger: true
-    - task: comple
+    - get: tasks-source
+      trigger: false
+    - task: compile
       file: tasks-source/tasks/maven-compile.yml
+  - name: test
+    plan:
+    - get: tasks-source      
+    - get: source-code
+      passed: [build]
+      trigger: true
+    - task: test
+      file: tasks-source/tasks/maven-test.yml
