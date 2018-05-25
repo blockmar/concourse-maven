@@ -2,7 +2,7 @@ resources:
   - name: source-code
     type: git
     source:
-      uri: git@github.com:my-org/my-source-repo.git
+      uri: git@github.com:((git-repo)).git
       private_key: ((github-private-key))
       branch: ((git-branch))
   - name: tasks-source
