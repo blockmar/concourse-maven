@@ -1,0 +1,23 @@
+resources:
+  - name: source-code
+    type: git
+    source:
+      uri: git@github.com:my-org/my-source-repo.git
+      private_key: ((github-private-key))
+      branch: ((git-branch))
+  - name: tasks-source
+    type: git
+    source:
+      uri: git@github.com:blockmar/concourse-maven.git
+      private_key: ((github-private-key))
+      branch: master
+
+jobs:
+  - name: build
+    plan:
+    - get: tasks-source
+      trigger: false    
+    - get: source-code
+      trigger: true
+    - task: comple
+      file: tasks-source/tasks/maven-compile.yml
